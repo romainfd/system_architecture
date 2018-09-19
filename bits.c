@@ -1,7 +1,7 @@
 /* 
  * INF559 Data Lab 
  * 
- * <Romain Fouilland>
+ * <Romain Fouilland romain.fouilland>
  * 
  * bits.c - Source file with your solutions to the Lab.
  *          This is the file you will hand in to your instructor.
@@ -185,8 +185,10 @@ int upperBits(int n) {
  */
 int anyEvenBit(int x) {
     /* we intersect with even bit nb and if we check if it's 0 */
-    x = (x & 0x55) + (x & (0x55 << 8)) + (x & (0x55 << 16)) + (x & (0x55 << 24));
-    return !!x;
+    int half_mask = 0x55 + (0x55 << 8);
+    int mask = half_mask + (half_mask << 16);
+    // x = (x & 0x55) + (x & (0x55 << 8)) + (x & (0x55 << 16)) + (x & (0x55 << 24));
+    return !!(x & mask);
 }
 /* 
  * byteSwap - swaps the nth byte and the mth byte
@@ -199,11 +201,12 @@ int anyEvenBit(int x) {
  */
 int byteSwap(int x, int n, int m) {
     /* Uses masks to find the 2 bytes and then swap them using +/- */
+    int byte1;
+    int byte2;
     n = n << 3; // to shift by byte => 8 bits
     m = m << 3; // << 3 is *8
-    int byte1;
     byte1 = (x >> n) & 0xFF; // final & 0xFF to keep only one byte
-    int byte2 = (x >> m) & 0xFF;
+    byte2 = (x >> m) & 0xFF;
     // on update les bytes en pos n puis m en soustrayant (mettant a zero le byte) puis ajoutant le swipe
     return (((x & (~(0xFF << n))) + (byte2 << n)) & (~(0xFF << m))) + (byte1 << m);
 }
@@ -231,9 +234,8 @@ int conditional(int x, int y, int z) {
  */
 int isAsciiDigit(int x) {
     /* digits range from 110000 to 111001
-       1. We check for the 0...011XXXX template
-       2. The end is either 0XXX or 100X (ie we check x >> 1 = 11100 = 0x1C) */
-    return (!((x >> 4) ^ 0x03)) & (!(x & 1 << 3) | !((x >> 1) ^ 0x1C));
+       The end is either 110XXX or 11100X (ie we check x >> 1 = 11100 = 0x1C) */
+    return (!((x >> 3) ^ 0x06)) | (!((x >> 1) ^ 0x1C));
 }
 /*
  * bitCount - returns count of number of 1's in word
@@ -244,19 +246,22 @@ int isAsciiDigit(int x) {
  */
 int bitCount(int x) {
     /* we count by pairs, then by group of 4, then 8, 16 and 32 */
-    int to2 = 0x55 + (0x55 << 8) + (0x55 << 16) + (0x55 << 24);
+    int half_to2 = 0x55 + (0x55 << 8);
+    int to2 = half_to2 + (half_to2 << 16);
+    int half_to4 = 0x33 + (0x33 << 8);
+    int to4 = half_to4 + (half_to4 << 16);
+    int half_to8 = 0x0F + (0x0F << 8);
+    int to8 = half_to8 + (half_to8 << 16);
+    int to16 = 0xFF + (0xFF << 16);
+    int to32 = 0xFF + (0xFF << 8);
     x = (x & to2) + ((x >> 1) & to2);
     // now we sum group the pairs (ie group 4 initial digits)
-    int to4 = 0x33 + (0x33 << 8) + (0x33 << 16) + (0x33 << 24);
     x = (x & to4) + ((x >> 2) & to4);
     // now we sum group the groups of 4 (ie group 8 initial digits)
-    int to8 = 0x0F + (0x0F << 8) + (0x0F << 16) + (0x0F << 24);
     x = (x & to8) + ((x >> 4) & to8);
     // now we sum group the groups of 8 (ie group 16 initial digits)
-    int to16 = 0xFF + (0xFF << 16);
     x = (x & to16) + ((x >> 8) & to16);
     // now we sum group the 2 groups of 16 (ie group 32 initial digits = all of them)
-    int to32 = 0xFF + (0xFF << 8);
     return (x & to32) + ((x >> 16) & to32);
 }
 /* 2's complement */
@@ -267,8 +272,9 @@ int bitCount(int x) {
  *   Rating: 1
  */
 int tmax(void) {
-    /* We loop at the bottm : tmax = tmin - 1 */
-    return (1 << 31) + (~0);
+    /* We loop at the bottom : tmax = 01...1 and we get there using its negation */
+    //return (1 << 31) + (~0);
+    return ~(1 << 31);
 }
 /* 
  * negate - return -x 
@@ -292,7 +298,7 @@ int negate(int x) {
  */
 int fitsBits(int x, int n) {
     /* -2^(n-1) <= x < 2^(n-1) => x / 2^(n - 1) (ou avec + 1) = 0 */
-  return !(x >> (n-1)) | !((x >> (n-1)) + 1);
+  return !(x >> (n + (~0))) | !((x >> (n + (~0))) + 1);
 }
 /* 
  * addOK - Determine if can compute x+y without overflow
@@ -333,7 +339,7 @@ int isGreater(int x, int y) {
  *   Rating: 4
  */
 int absVal(int x) {
-    /* -x = ~x + 1. Or, O ^ x = x et 1...1 ^ x = ~x. On a juste a générer 0 u 1..1 en etendant is_negatif et à ajouter ce boolean */
+    /* -x = ~x + 1. Or, O ^ x = x et 1...1 ^ x = ~x. On a juste a générer 0 ou 1..1 en etendant is_negatif et à ajouter ce boolean */
   int full_line = x >> 31;
   return (full_line ^ x) + !!full_line;
 }
