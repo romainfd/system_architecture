@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="TD1"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TD1">
+				<Option output="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/TD1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.1.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 TD1"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TD1/fast">
+				<Option output="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/TD1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/."/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.1.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 TD1/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/Driverhdrs.pm">
+			<Option target="TD1"/>
+		</Unit>
+		<Unit filename="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/Driverlib.pm">
+			<Option target="TD1"/>
+		</Unit>
+		<Unit filename="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/Makefile">
+			<Option target="TD1"/>
+		</Unit>
+		<Unit filename="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/README">
+			<Option target="TD1"/>
+		</Unit>
+		<Unit filename="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/bits.c">
+			<Option target="TD1"/>
+		</Unit>
+		<Unit filename="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/bits.h">
+			<Option target="TD1"/>
+		</Unit>
+		<Unit filename="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/btest.c">
+			<Option target="TD1"/>
+		</Unit>
+		<Unit filename="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/btest.h">
+			<Option target="TD1"/>
+		</Unit>
+		<Unit filename="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/decl.c">
+			<Option target="TD1"/>
+		</Unit>
+		<Unit filename="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/dlc">
+			<Option target="TD1"/>
+		</Unit>
+		<Unit filename="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/driver.pl">
+			<Option target="TD1"/>
+		</Unit>
+		<Unit filename="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/fshow.c">
+			<Option target="TD1"/>
+		</Unit>
+		<Unit filename="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/ishow.c">
+			<Option target="TD1"/>
+		</Unit>
+		<Unit filename="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/tests.c">
+			<Option target="TD1"/>
+		</Unit>
+		<Unit filename="/Users/romainfouilland/drive/TravailTemp/Polytechnique/3A/Cours/INF559/TD1/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
