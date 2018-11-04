@@ -1,7 +1,7 @@
 # system_architecture
 
-# TD1
+## TD1
 Bit operators and functions
 
-# TD6
+## TD6
 Implementation of a cache
