@@ -33,11 +33,6 @@ void printUsage(char* argv[])
     exit(0);
 }
 
-int getSet() {
-  return 1;
-}
-
-
 // converts an int to an array of its digits in the binary decomposition
 void int_to_bin_digit(int in, char* out) {
     for (int i = 63; i >= 0; i--) {
