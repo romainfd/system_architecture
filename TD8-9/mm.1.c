@@ -1,14 +1,13 @@
 /*
- * We implemented the segragated free implicit list with coalescence.
- * We added the new empty blocks naively at the top of each list and we took the first fit we found.
- * To do so, we stored our data structure (a list of buckets) at the very bottom of the heap during the mm_init call.
- * Whenever we would free a block, we would add it to the good bucket (at the top).
- * However, before doing this, we would try to coalesce with its rght and left neighbors and also update their respective buckets (to remove them) before adding the bigger block obtained.
- * To malloc, we take the first fit in the smallest bucket list possible and eventually add the rest of the place back in our structure.
- * To realloc, we simply check if the size is smaller and just add the rest to the bucket (just like malloc).
- * We tried to move the top of the heap when we were trying to reallocate a big block and we just had to move a small block to get some place.
- * However, because of the 'ranges' structure of mdriver, the correction thought we were overlapping existing data. 
- * We left the code commented at the bottom of the mm_realloc function.
+ * mm-naive.c - The fastest, least memory-efficient malloc package.
+ * 
+ * In this naive approach, a block is allocated by simply incrementing
+ * the brk pointer.  A block is pure payload. There are no headers or
+ * footers.  Blocks are never coalesced or reused. Realloc is
+ * implemented directly using mm_malloc and mm_free.
+ *
+ * NOTE TO STUDENTS: Replace this header comment with your own header
+ * comment that gives a high level description of your solution.
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -58,8 +57,6 @@ team_t team = {
 #define GET_NEXT(ptr) ((size_t**) *ptr)
 
 #define GET_PREV(ptr) ((size_t**) *(ptr + 1))
-
-#define GET_RIGHT(ptr) (ptr + GET_BLOCK_LEN(ptr) + 2 * SIZE_T_SIZE)
 
 #define WRITE_HEADER(ptr, val)  *(int*)((void*)ptr - SIZE_T_SIZE) = val
 
@@ -448,7 +445,6 @@ void mm_free(void *ptr) {
  * mm_realloc - Implemented simply in terms of mm_malloc and mm_free
  */
 void *mm_realloc(void *ptr, size_t size) {
-    size = ALIGN(size);
     if (ptr == NULL) {
         return malloc(size);
     } else if (size == 0) {
@@ -473,38 +469,7 @@ void *mm_realloc(void *ptr, size_t size) {
                 return ptr;
             }
         } else {
-            /* DOESN'T WORK BECAUSE OF THE RANGE CHECK IN mdriver (line 411)
-            int distToHeapBottom = (int) mem_heap_hi() + 1 - ((int) ((void*) GET_RIGHT(ptr) - SIZE_T_SIZE));
             // not enough space => simply malloc somewhere else and free
-            if (distToHeapBottom < GET_BLOCK_LEN(ptr)) {
-                int offset = size - GET_BLOCK_LEN(ptr);
-                // close to the heap bottom => we move the bottom to fit in
-                size_t** right = GET_RIGHT(ptr);
-                // we move all the blocks after
-                while ((int) right < (int) mem_heap_hi()) {
-                    if (IS_FREE(right) == 1) {
-                        // we move the pointers in the bucket list
-                        *GET_PREV(right) = (size_t*) ((void*) *GET_PREV(right) + offset);
-                        if (*right != NULL) {
-                            *(GET_NEXT(right) + 1) = (size_t*) ((void*) *(GET_NEXT(right) + 1) + offset);
-                        }
-                    }
-                    right = (size_t**) GET_RIGHT(right);
-                }
-                void* restData = ptr + GET_BLOCK_LEN(ptr) + SIZE_T_SIZE;
-
-                // we get the additionnal space to move
-                mem_sbrk(offset);
-                memcpy(restData + offset, restData, distToHeapBottom);
-
-                // we apdate the reallocated block (tht didn't move)
-                //WRITE_FOOTER(ptr, 0);
-                WRITE_HEADER(ptr, size);
-                WRITE_FOOTER(ptr, size);
-
-                return ptr;
-            } else { */
-
             void* newptr = mm_malloc(size);
             if (newptr == NULL)
                 return NULL;
