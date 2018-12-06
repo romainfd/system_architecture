@@ -1,4 +1,9 @@
-# system_architecture
+## INF559 course @ Ecole polytechnique : 
+# A Programmer's Introduction to Computer Architectures and Operating Systems
+
+The textbook is 
+`Computer Systems, a Programmer's Perspective`
+by Randy Briant, David O'Hallaron.  
 
 ## TD1
 Bit operators and functions.
